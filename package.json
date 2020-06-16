@@ -1,9 +1,13 @@
 {
   "scripts": {
-    "start": "json-server --watch db.json"
+    "bootstrap": "node scripts/generate-db.js",
+    "start": "json-server --watch db.json --port 4000"
   },
   "private": true,
   "dependencies": {
     "json-server": "^0.16.1"
+  },
+  "devDependencies": {
+    "faker": "^4.1.0"
   }
 }
