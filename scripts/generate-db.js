@@ -12,14 +12,12 @@ const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1)
 const createPost = () => {
   const id = faker.random.uuid()
   const title = capitalize(faker.random.words(3))
-  const slug = faker.helpers.slugify(title).toLowerCase()
-  const image = faker.image.imageUrl(1920, 1080)
+  const image = `https://source.unsplash.com/random/1920x1080?id=${id}`
   const content = faker.lorem.paragraphs(10)
 
   return {
     id,
     title,
-    slug,
     image,
     content,
   }
@@ -33,8 +31,8 @@ const createUser = () => {
 }
 
 const run = async () => {
-  const posts = Array.from({length: 15}, createPost)
-  const users = Array.from({length: 5}, createUser)
+  const posts = Array.from({length: 5}, createPost)
+  const users = Array.from({length: 1}, createUser)
   const db = {
     posts,
     users,
